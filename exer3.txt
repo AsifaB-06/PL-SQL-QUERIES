@@ -1,0 +1,93 @@
+/* ================================
+   TABLE CREATION
+   ================================ */
+
+CREATE TABLE products (
+    product_id    NUMBER,
+    product_name  VARCHAR2(25),
+    mfg_date      DATE,
+    price         NUMBER(8,2),
+    brand         VARCHAR2(15),
+    customer      VARCHAR2(15),
+    location      VARCHAR2(15)
+);
+
+
+/* ================================
+   INSERT RECORDS
+   ================================ */
+
+INSERT INTO products VALUES
+(20101, 'smart watch', TO_DATE('05/02/2022','DD/MM/YYYY'), 3000, 'boat', 'arun', 'chennai');
+
+INSERT INTO products VALUES
+(20102, 'bluetooth speaker', TO_DATE('17/03/2022','DD/MM/YYYY'), 1500, 'jbl', 'meena', 'delhi');
+
+INSERT INTO products VALUES
+(20103, 'earbuds', TO_DATE('28/04/2022','DD/MM/YYYY'), 1400, 'sony', 'rahul', NULL);
+
+INSERT INTO products VALUES
+(20104, 'power bank', TO_DATE('09/06/2022','DD/MM/YYYY'), 1800, 'mi', 'karthik', 'mumbai');
+
+INSERT INTO products VALUES
+(20105, 'portable charger', TO_DATE('21/07/2022','DD/MM/YYYY'), 1500, 'anker', 'neha', NULL);
+
+COMMIT;
+
+
+/* ================================
+   DISPLAY TABLE
+   ================================ */
+
+SELECT * FROM products;
+
+
+/* ================================
+   STRING FUNCTIONS
+   ================================ */
+
+SELECT UPPER(product_name) FROM products;
+
+SELECT INITCAP(product_name) FROM products;
+
+SELECT TRIM(BOTH 'a' FROM product_name) FROM products;
+
+
+/* ================================
+   DATE FUNCTIONS
+   ================================ */
+
+SELECT ADD_MONTHS(TO_DATE('12/01/2022','DD/MM/YYYY'), 4) FROM dual;
+
+SELECT LAST_DAY(TO_DATE('18/02/2022','DD/MM/YYYY')) FROM dual;
+
+SELECT TO_CHAR(mfg_date, 'DAY MONTH YYYY') FROM products;
+
+SELECT TO_CHAR(SYSDATE, 'DD') FROM dual;
+
+
+/* ================================
+   NUMBER FUNCTIONS
+   ================================ */
+
+SELECT
+    MAX(price),
+    MIN(price),
+    ROUND(AVG(price), 1),
+    SUM(price)
+FROM products;
+
+SELECT MIN(product_name), MAX(product_name) FROM products;
+
+SELECT COUNT(location) FROM products;
+
+
+/* ================================
+   CONVERSION FUNCTIONS
+   ================================ */
+
+SELECT TO_CHAR(SYSDATE, 'DD') FROM dual;
+
+SELECT TO_CHAR(SYSDATE, 'DDth') FROM dual;
+
+SELECT TO_CHAR(SYSDATE, 'DDSPTH') FROM dual;
