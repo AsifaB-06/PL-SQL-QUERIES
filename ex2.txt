@@ -1,0 +1,23 @@
+CREATE TABLE customer (customer_id INTEGER PRIMARY KEY,name VARCHAR (20) NOT NULL,age INT,location VARCHAR (10) NOT NULL);
+
+INSERT INTO customer VALUES (101, 'Ravi', 20, 'Cbe');
+
+INSERT INTO customer VALUES (102, 'Raj', 18, 'Chennai');
+
+INSERT INTO customer VALUES (103, 'Jeni', 19, 'Theni');
+
+INSERT INTO customer VALUES (104, 'Ben', 20, 'Madurai');
+
+SELECT * FROM customer;
+
+CREATE TABLE orders (order_id INT PRIMARY KEY,order_number INT NOT NULL,customer_id INT references customer (customer_id ));
+
+INSERT INTO orders VALUES (121, 10854, 102);
+
+INSERT INTO orders VALUES (145, 10286, 101);
+
+INSERT INTO orders VALUES (135, 10288,103);
+
+INSERT INTO orders VALUES (114, 11354,104);
+
+SELECT * FROM orders;

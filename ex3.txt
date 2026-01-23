@@ -1,0 +1,65 @@
+CREATE TABLE products (
+    product_id    INTEGER,
+    product_name  VARCHAR(25),
+    mfg_date      VARCHAR(10),
+    price         NUMBER(8,2),
+    brand         VARCHAR(15),
+    customer      VARCHAR(15),
+    location      VARCHAR(15)
+);
+
+INSERT INTO products VALUES
+(20101, 'smart watch', '05/02/2022', 3000, 'boat', 'arun', 'chennai');
+
+INSERT INTO products VALUES
+(20102, 'bluetooth speaker', '17/03/2022', 1500, 'jbl', 'meena', 'delhi');
+
+INSERT INTO products VALUES
+(20103, 'earbuds', '28/04/2022', 1400, 'sony', 'rahul', NULL);
+
+INSERT INTO products VALUES
+(20104, 'power bank', '09/06/2022', 1800, 'mi', 'karthik', 'mumbai');
+
+INSERT INTO products VALUES
+(20105, 'portable charger', '21/07/2022', 1500, 'anker', 'neha', NULL);
+
+SELECT * FROM products;
+
+/* string */
+
+SELECT UPPER(product_name) FROM products;
+
+SELECT INITCAP(product_name) FROM products;
+
+SELECT TRIM(BOTH 'a' FROM product_name) FROM products;
+
+/* date */
+
+SELECT ADD_MONTHS('12/08/2022', 4) FROM dual;
+
+SELECT LAST_DAY('18/02/2022') FROM dual;
+
+SELECT TO_CHAR(mfg_date, 'day month yyyy') FROM products;
+
+SELECT TO_CHAR(SYSDATE, 'dd') FROM dual;
+
+/* number */
+
+SELECT
+    MAX(price),
+    MIN(price),
+    ROUND(AVG(price), 1),
+    SUM(price)
+FROM products;
+
+SELECT MIN(product_name), MAX(product_name) FROM products;
+
+SELECT COUNT(location) FROM products;
+
+/* conversion */
+
+SELECT TO_CHAR(SYSDATE, 'dd') FROM dual;
+
+SELECT TO_CHAR(SYSDATE, 'ddth') FROM dual;
+
+SELECT TO_CHAR(SYSDATE, 'ddspth') FROM dual;
