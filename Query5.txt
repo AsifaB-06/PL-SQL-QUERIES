@@ -1,0 +1,46 @@
+/* ===============================
+   CREATE TABLE
+   =============================== */
+
+CREATE TABLE employee (
+    emp_id NUMBER,
+    emp_name VARCHAR2(20),
+    salary NUMBER,
+    dept_id NUMBER
+);
+
+/* ===============================
+   INSERT VALUES
+   =============================== */
+
+INSERT INTO employee VALUES (1, 'Ravi', 12000, 1);
+INSERT INTO employee VALUES (2, 'Anu', 15000, 2);
+INSERT INTO employee VALUES (3, 'Kumar', 10000, 1);
+INSERT INTO employee VALUES (4, 'Meena', 18000, 3);
+
+/* ===============================
+   SUBQUERY EXAMPLES
+   =============================== */
+
+/* 1. Employee with salary greater than average salary */
+SELECT emp_name
+FROM employee
+WHERE salary > (
+    SELECT AVG(salary) FROM employee
+);
+
+/* 2. Employees working in the same department as Ravi */
+SELECT emp_name
+FROM employee
+WHERE dept_id = (
+    SELECT dept_id
+    FROM employee
+    WHERE emp_name = 'Ravi'
+);
+
+/* 3. Employee with maximum salary */
+SELECT emp_name
+FROM employee
+WHERE salary = (
+    SELECT MAX(salary) FROM employee
+);

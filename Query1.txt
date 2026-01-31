@@ -1,0 +1,27 @@
+/* ===============================
+   DDL STATEMENTS – SINGLE PROGRAM
+   =============================== */
+
+/* CREATE TABLE */
+CREATE TABLE student (
+    sid NUMBER,
+    sname VARCHAR2(20)   
+
+);
+
+/* ALTER TABLE – Add a new column */
+ALTER TABLE student
+ADD age NUMBER;
+
+/* INSERT RECORDS */
+INSERT INTO student VALUES (1, 'Ravi', 20);
+INSERT INTO student VALUES (2, 'Anu', 21);
+
+/* DISPLAY RECORDS */
+SELECT * FROM student;
+
+/* TRUNCATE TABLE – Remove all records */
+TRUNCATE TABLE student;
+
+/* DROP TABLE – Delete table completely */
+DROP TABLE student;

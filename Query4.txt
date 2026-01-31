@@ -1,0 +1,70 @@
+/* ===============================
+   CREATE TABLES
+   =============================== */
+
+CREATE TABLE department (
+    dept_id NUMBER,
+    dept_name VARCHAR2(20)
+);
+
+CREATE TABLE employee (
+    emp_id NUMBER,
+    emp_name VARCHAR2(20),
+    dept_id NUMBER
+);
+
+/* ===============================
+   INSERT VALUES
+   =============================== */
+
+INSERT INTO department VALUES (1, 'IT');
+INSERT INTO department VALUES (2, 'CSE');
+INSERT INTO department VALUES (3, 'ECE');
+
+INSERT INTO employee VALUES (101, 'Ravi', 1);
+INSERT INTO employee VALUES (102, 'Anu', 2);
+INSERT INTO employee VALUES (103, 'Kumar', NULL);
+
+/* ===============================
+   INNER JOIN
+   =============================== */
+
+SELECT e.emp_name, d.dept_name
+FROM employee e
+INNER JOIN department d
+ON e.dept_id = d.dept_id;
+
+/* ===============================
+   LEFT OUTER JOIN
+   =============================== */
+
+SELECT e.emp_name, d.dept_name
+FROM employee e
+LEFT OUTER JOIN department d
+ON e.dept_id = d.dept_id;
+
+/* ===============================
+   RIGHT OUTER JOIN
+   =============================== */
+
+SELECT e.emp_name, d.dept_name
+FROM employee e
+RIGHT OUTER JOIN department d
+ON e.dept_id = d.dept_id;
+
+/* ===============================
+   FULL OUTER JOIN
+   =============================== */
+
+SELECT e.emp_name, d.dept_name
+FROM employee e
+FULL OUTER JOIN department d
+ON e.dept_id = d.dept_id;
+
+/* ===============================
+   CROSS JOIN
+   =============================== */
+
+SELECT e.emp_name, d.dept_name
+FROM employee e
+CROSS JOIN department d;

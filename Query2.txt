@@ -1,0 +1,39 @@
+/* ===============================
+   PARENT TABLE
+   =============================== */
+
+CREATE TABLE department (
+    dept_id NUMBER PRIMARY KEY,          -- Primary Key
+    dept_name VARCHAR2(20) UNIQUE         -- Unique constraint
+);
+
+/* ===============================
+   CHILD TABLE
+   =============================== */
+
+CREATE TABLE employee (
+    emp_id NUMBER PRIMARY KEY,            -- Primary Key
+    emp_name VARCHAR2(20) NOT NULL,        -- NOT NULL constraint
+    age NUMBER CHECK (age >= 18),          -- CHECK constraint
+    salary NUMBER CHECK (salary > 5000),   -- CHECK constraint
+    dept_id NUMBER,                        
+    CONSTRAINT emp_dept_fk FOREIGN KEY (dept_id)
+    REFERENCES department(dept_id)         -- Foreign Key
+);
+
+/* ===============================
+   INSERT VALUES
+   =============================== */
+
+INSERT INTO department VALUES (1, 'IT');
+INSERT INTO department VALUES (2, 'CSE');
+
+INSERT INTO employee VALUES (101, 'Ravi', 22, 10000, 1);
+INSERT INTO employee VALUES (102, 'Anu', 25, 12000, 2);
+
+/* ===============================
+   IS (NULL) CONDITION
+   =============================== */
+
+SELECT * FROM employee
+WHERE dept_id IS NOT NULL;

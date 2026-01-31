@@ -1,0 +1,27 @@
+/* Create table */
+CREATE TABLE employee (
+    emp_id NUMBER,
+    emp_name VARCHAR2(20),
+    salary NUMBER,
+    doj DATE
+);
+
+/* Insert values */
+INSERT INTO employee VALUES (1, 'ravi', 12000, SYSDATE);
+INSERT INTO employee VALUES (2, 'anu', 15000, SYSDATE);
+INSERT INTO employee VALUES (3, 'kumar', 10000, SYSDATE);
+
+/* STRING FUNCTIONS */
+SELECT UPPER(emp_name) FROM employee;
+SELECT LENGTH(emp_name) FROM employee;
+
+/* NUMBER FUNCTIONS */
+SELECT MAX(salary), MIN(salary) FROM employee;
+SELECT ROUND(AVG(salary), 2) FROM employee;
+
+/* DATE FUNCTIONS */
+SELECT SYSDATE FROM dual;
+SELECT ADD_MONTHS(doj, 6) FROM employee;
+
+/* AGGREGATE FUNCTION */
+SELECT COUNT(emp_id) FROM employee;
