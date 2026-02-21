@@ -1,0 +1,16 @@
+Public Class MdiParent
+
+    Private Sub MdiParent_Load(ByVal sender As System.Object,
+                               ByVal e As System.EventArgs) Handles MyBase.Load
+
+        ' Set MDI Parent for Child 1
+        MDIchild1.MdiParent = Me
+        MDIchild1.Show()
+
+        ' Set MDI Parent for Child 2
+        MDIchild2.MdiParent = Me
+        MDIchild2.Show()
+
+    End Sub
+
+End Class
